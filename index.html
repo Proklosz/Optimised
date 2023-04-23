@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="ss1.css">
 
 </head>
-<body onLoad=loadImages()>
+<body >
 
 
 
@@ -37,27 +37,6 @@
     </h1>
 </div>
 </body>
-
-<?php
-
-$images=array();
-
-
-for ($x = 0; $x <= 100; $x++) {
-    $a=strlen($x);
-    if($a==0){
-        $images[$x]="<img src='./torknot/0000.webp'><br>";
-    }elseif ($a==1){
-        $images[$x]="<img src='./torknot/000{$x}.webp'><br>";
-    }elseif ($a==2){
-        $images[$x]="<img src='./torknot/00{$x}.webp'><br>";
-    }else{
-        $images[$x]="<img src='./torknot/0{$x}.webp'><br>";
-    }
-
-}
-?>
-
 <script>
 
     var position = document.getElementById('position');
@@ -67,10 +46,24 @@ for ($x = 0; $x <= 100; $x++) {
 
     const framenumber = 101;
     const scale = 10;
-    var images = [];
+
     var i ;
 
+    const images = [];
 
+    for (var x = 0; x <= framenumber; x++) {
+        var a = x.toString().length;
+        images[x] = new Image();
+        if (a == 0) {
+            images[x].src = "./torknot/0000.webp";
+        } else if (a == 1) {
+            images[x].src = "./torknot/000"+x+".webp";
+        } else if (a == 2) {
+            images[x].src = "./torknot/00"+x+".webp";
+        } else {
+            images[x].src = "./torknot/0"+x+".webp";
+        }
+    }
 
 
 
@@ -87,25 +80,24 @@ for ($x = 0; $x <= 100; $x++) {
         }else{
             int.innerHTML = Math.ceil(scroll_y/scale)-1;
         }
-        if(int.innerHTML > framenumber){
+        if(int.innerHTML >= framenumber){
             //int.innerHTML = int.innerHTML - (Math.ceil(int.innerHTML/framenum)-1)*framenum;
-            int.innerHTML = framenumber;
-            intlength.innerHTML = int.innerHTML.length;
+            int.innerHTML = framenumber-1;
+            //intlength.innerHTML = int.innerHTML.length;
         }else{
-            intlength.innerHTML = int.innerHTML.length;
+            //intlength.innerHTML = int.innerHTML.length;
         }
 
+        var iemgé = document.getElementById("IMG");
+            iemgé.src = images[int.innerHTML].src;
 
-
-
-        if(int.innerHTML.length<2){
-            int.innerHTML="0"+int.innerHTML;
-        }
-        if (intlength.innerHTML >2){
-            document.getElementById("IMG").src="./torknot/0"+ int.innerHTML +".webp";
-        }else{
-            document.getElementById("IMG").src="./torknot/00"+ int.innerHTML +".webp";
-        }
+        window.addEventListener('load', function() {
+            images.forEach(function(img) {
+                img.onload = function() {
+                    console.log('Image loaded:', img.src);
+                };
+            });
+        });
 
 
     });
