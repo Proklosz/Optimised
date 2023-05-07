@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="ss1.css">
+
+</head>
+<body >
+
+
+
+<div class="eee">
+    <h1>scrollpos:
+        <b><span id="position"></span>
+        </b>
+    </h1>
+    <h1>calculated:
+        <b><span id="int"></span></b>
+    </h1>
+</div>
+<div class="eee2">
+    <h1>i:
+        <b><span id="intlength"></span>
+        </b>
+    </h1>
+
+</div>
+<div class="Backgroundvideo">
+    <img src="./160L/0000.webp" id="IMG" align="center" loading="lazy">
+</div>
+
+<div class="referencilya">
+    <h1>
+        +   +   +   +   +
+    </h1>
+</div>
+</body>
+<script>
+
+    var position = document.getElementById('position');
+    position.innerHTML = "";
+    var int = document.getElementById('int');
+    int.innerHTML = "";
+
+    const framenumber = 160;
+    const scale = 10;
+
+    var i ;
+    // Get the screen width and height
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+
+    // Calculate the aspect ratio
+    const aspectRatio = screenWidth / screenHeight;
+    const images = [];
+
+    // Load the appropriate set of images based on the aspect ratio
+    if (aspectRatio >= 1) {
+        // Use imagesSet1 for landscape orientation
+        // Add code to display imagesSet1 in your HTML here
+
+        for (var x = 0; x < framenumber; x++) {
+            var a = x.toString().length;
+            images[x] = new Image();
+            if (x==0) {
+                images[x].src = "./160L/0000.webp";
+            } else if (a == 1) {
+                images[x].src = "./160L/000"+(x)+".webp";
+            } else if (a == 2) {
+                images[x].src = "./160L/00"+(x)+".webp";
+            } else {
+                images[x].src = "./160L/0"+(x)+".webp";
+            }
+        }
+
+    } else {
+        // Use imagesSet2 for portrait orientation
+        // Add code to display imagesSet2 in your HTML here
+        for (var x = 0; x < framenumber; x++) {
+            var a = x.toString().length;
+            images[x] = new Image();
+            if (x==0) {
+                images[x].src = "./160M/0000.webp";
+            } else if (a == 1) {
+                images[x].src = "./160M/000"+(x)+".webp";
+            } else if (a == 2) {
+                images[x].src = "./160M/00"+(x)+".webp";
+            } else {
+                images[x].src = "./160M/0"+(x)+".webp";
+            }
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+    window.addEventListener("scroll", function(event) {
+
+        var scroll_y = this.scrollY;
+        var scroll_x = this.scrollX;
+        console.log(scroll_x, scroll_y);
+        position.innerHTML = scroll_y;
+        if(scroll_y==0){
+            int.innerHTML = 0;
+        }else{
+            int.innerHTML = Math.ceil(scroll_y/scale)-1;
+        }
+        if(int.innerHTML > (framenumber-1)){
+            //int.innerHTML = int.innerHTML - (Math.ceil(int.innerHTML/framenumber)-1)*framenumber;
+            int.innerHTML = framenumber-1;
+            //intlength.innerHTML = int.innerHTML.length;
+        }else{
+            //intlength.innerHTML = int.innerHTML.length;
+        }
+
+        var iemgé = document.getElementById("IMG");
+            iemgé.src = images[int.innerHTML].src;
+
+
+
+
+    });
+
+
+
+</script>
+</html>
