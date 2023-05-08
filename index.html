@@ -28,13 +28,17 @@
 
 </div>
 <div class="Backgroundvideo">
-    <img src="./160L/0000.webp" id="IMG" align="center" loading="lazy">
+    <img src="./160L/0000.webp" id="IMG" align="center" >
 </div>
 
 <div class="referencilya">
     <h1>
         +   +   +   +   +
     </h1>
+</div>
+<div class="image-container">
+
+    <div class="blue-orb"></div>
 </div>
 </body>
 <script>
@@ -49,11 +53,11 @@
 
     var i ;
     // Get the screen width and height
-    const screenWidth = window.screen.width;
-    const screenHeight = window.screen.height;
+    var screenWidth = window.screen.width;
+    var screenHeight = window.screen.height;
 
     // Calculate the aspect ratio
-    const aspectRatio = screenWidth / screenHeight;
+    var aspectRatio = screenWidth / screenHeight;
     const images = [];
 
     // Load the appropriate set of images based on the aspect ratio
@@ -124,9 +128,28 @@
         var iemgé = document.getElementById("IMG");
             iemgé.src = images[int.innerHTML].src;
 
-
-
-
+        if (position.innerHTML < 1300) {  /* adjust this value to your desired point */
+            document.querySelector('.blue-orb').style.opacity = '0';
+            document.querySelector('.blue-orb').style.height = '50px';
+            document.querySelector('.blue-orb').style.width = '50px';
+        }
+        if (position.innerHTML > 1300 && position.innerHTML < 1600) {
+            document.querySelector('.blue-orb').style.opacity = '1';
+            document.querySelector('.blue-orb').style.height = '50px';
+            document.querySelector('.blue-orb').style.width = '50px';
+        }
+        if (position.innerHTML > 1600 ) {
+            /* adjust this value to your desired point */
+            if (aspectRatio >= 1) {
+                document.querySelector('.blue-orb').style.opacity = '1';
+                document.querySelector('.blue-orb').style.height = '1000px';
+                document.querySelector('.blue-orb').style.width = '50px';
+            } else {
+                document.querySelector('.blue-orb').style.opacity = '1';
+                document.querySelector('.blue-orb').style.height = '50px';
+                document.querySelector('.blue-orb').style.width = '1000px';
+            }
+        }
     });
 
 
