@@ -6,19 +6,15 @@ body{
     background-color: #000000;
 
 }
-
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
     display: none;
 }
-
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
-
-
 .Backgroundvideo{
     position: fixed;
     width:100%;
@@ -30,7 +26,6 @@ body {
     animation-fill-mode: forwards;
     animation-duration: 2s;
 }
-
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -39,15 +34,11 @@ body {
         opacity: 1;
     }
 }
-
-
 #IMG{
     position: fixed;
     transform:translate(-50%, -50%);
     top:50%;
     left:50%;
-
-
 }
 /* CSS rules for desktop devices */
 @media screen and (min-aspect-ratio: 1/1) {
@@ -57,8 +48,29 @@ body {
         width: 100%;
         height: auto;
     }
-}
+    .selfp {
 
+        position: fixed;
+        width:49%;
+
+        bottom: 0px;
+        opacity: 0;
+        transition: opacity 1.5s;
+        left: 0px;
+        z-index: -1;
+    }
+    .szoveg{
+        position: fixed;
+        width:47.5%;
+        color: #009dc7;
+        top:25%;
+        opacity: 0;
+        transition: opacity 1.5s;
+        right: 0px;
+        z-index: -1;
+    }
+
+}
 /* CSS rules for mobile devices */
 @media screen and (max-aspect-ratio: 1/1) {
     /* Add your mobile-specific CSS rules here */
@@ -67,6 +79,27 @@ body {
         /* Mobile-specific styles */
         height: 100%;
         width: auto;
+    }
+    .selfp {
+
+        position: fixed;
+        width:100%;
+
+        bottom: 50%;
+        opacity: 0;
+        transition: opacity 1.5s;
+        left: 0px;
+        z-index: -1;
+    }
+    .szoveg{
+        position: fixed;
+        width:100%;
+        color: #009dc7;
+        top:50%;
+        opacity: 0;
+        transition: opacity 1.5s;
+        right: 0px;
+        z-index: -1;
     }
 }
 .eee{
@@ -102,6 +135,20 @@ body {
     top:50%;
     left:50%;  /* horizontally centered */
     opacity: 0;
-    background: radial-gradient(circle at center, #00a4ff, #003399);
+    background: radial-gradient(circle at center, #0065c7, #009ec8);
     transition: height 1s, opacity 1s, width 1s;
+}
+#sp{
+    position: relative;
+    width:100%;
+    height:auto;
+
+}
+.szoveg h1{
+    text-align: center;
+    size: 55px;
+}
+.szoveg p{
+    text-align: center;
+    size: 35px;
 }

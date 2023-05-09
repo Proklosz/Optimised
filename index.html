@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portfolio</title>
     <link rel="stylesheet" href="ss1.css">
-
 </head>
 <body >
-
-
-
 <div class="eee">
     <h1>scrollpos:
         <b><span id="position"></span>
@@ -25,7 +21,6 @@
         <b><span id="intlength"></span>
         </b>
     </h1>
-
 </div>
 <div class="Backgroundvideo">
     <img src="./160L/0000.webp" id="IMG" align="center" >
@@ -37,12 +32,39 @@
     </h1>
 </div>
 <div class="image-container">
-
     <div class="blue-orb"></div>
+</div>
+<div class="selfp">
+    <img src="./sp.webp" id="sp">
+</div>
+<div class="szoveg">
+    <h1>
+        Nagy Vincent<br>
+        PORTFOLIO
+    </h1>
+    <p>Ide kéne majd írni valami értelmeset magamról de egyenlőre
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        blah blah blah blah blah blah blah blah blah blah blah blah
+    </p>
 </div>
 </body>
 <script>
-
     var position = document.getElementById('position');
     position.innerHTML = "";
     var int = document.getElementById('int');
@@ -99,15 +121,7 @@
     }
 
 
-
-
-
-
-
-
-
     window.addEventListener("scroll", function(event) {
-
         var scroll_y = this.scrollY;
         var scroll_x = this.scrollX;
         console.log(scroll_x, scroll_y);
@@ -128,6 +142,7 @@
         var iemgé = document.getElementById("IMG");
             iemgé.src = images[int.innerHTML].src;
 
+
         if (position.innerHTML < 1300) {  /* adjust this value to your desired point */
             document.querySelector('.blue-orb').style.opacity = '0';
             document.querySelector('.blue-orb').style.height = '50px';
@@ -144,12 +159,27 @@
                 document.querySelector('.blue-orb').style.opacity = '1';
                 document.querySelector('.blue-orb').style.height = '1000px';
                 document.querySelector('.blue-orb').style.width = '50px';
+                if(position.innerHTML > 1800){
+                    document.querySelector('.selfp').style.opacity = '1';
+                    document.querySelector('.szoveg').style.opacity = '1';
+                }else{
+                    document.querySelector('.selfp').style.opacity = '0';
+                    document.querySelector('.szoveg').style.opacity = '0';
+                }
             } else {
                 document.querySelector('.blue-orb').style.opacity = '1';
                 document.querySelector('.blue-orb').style.height = '50px';
                 document.querySelector('.blue-orb').style.width = '1000px';
+                if(position.innerHTML > 1800){
+                    document.querySelector('.selfp').style.opacity = '1';
+                    document.querySelector('.szoveg').style.opacity = '1';
+                }else{
+                    document.querySelector('.selfp').style.opacity = '0';
+                    document.querySelector('.szoveg').style.opacity = '0';
+                }
             }
         }
+
     });
 
 
