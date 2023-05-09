@@ -68,6 +68,7 @@ body {
         transition: opacity 1.5s;
         right: 0px;
         z-index: -1;
+        pointer-events: none;
     }
 
 }
@@ -100,6 +101,7 @@ body {
         transition: opacity 1.5s;
         right: 0px;
         z-index: -1;
+        pointer-events: none;
     }
 }
 .eee{
